@@ -20,7 +20,7 @@ class _AboutMePageState extends State<AboutMePage> {
       children: [
         SizedBox(height: screenSize.height * .05),
         const CircleAvatar(
-          radius: 100,
+          radius: 90,
           backgroundImage: AssetImage('assets/images/pp.png'),
         ),
         SizedBox(height: screenSize.height * .05),
@@ -57,7 +57,7 @@ class _AboutMePageState extends State<AboutMePage> {
                 ? screenSize.width * .7
                 : screenSize.width * .4,
             child: const Text(
-              'A passionate Full Stack Software Developer having an experience of building Web and Mobile applications with JavaScript / Reactjs / Nodejs / React Native and some other cool libraries and frameworks.',
+              'A passionate Full Stack Software Developer having an experience of building Web and Mobile applications with Flutter / VueJS/ .NET and some other cool libraries and frameworks.',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 25,
