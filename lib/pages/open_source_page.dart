@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_web_portfolio/controllers/repo_controller.dart';
 import 'package:flutter_web_portfolio/models/repo_model.dart';
 import 'package:flutter_web_portfolio/utils/colors.dart';
+import 'package:flutter_web_portfolio/utils/responsive.dart';
 import 'package:line_icons/line_icons.dart';
 import 'dart:js' as js;
 
@@ -31,6 +32,196 @@ class _OpenSourcePageState extends State<OpenSourcePage> {
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
+    return ResponsiveWidget.isSmallScreen(context)
+        ? Container(
+            padding: const EdgeInsets.all(20),
+            height: screenSize.height,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const Text(
+                  'Open Source Projects',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 40,
+                  ),
+                ),
+                Expanded(
+                  child: GridView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                      maxCrossAxisExtent: screenSize.width * .4,
+                      mainAxisExtent: screenSize.height * .2,
+                      childAspectRatio: 3,
+                      crossAxisSpacing: 40,
+                      mainAxisSpacing: 30,
+                    ),
+                    itemCount: repoList.length,
+                    itemBuilder: (BuildContext ctx, index) {
+                      return InkWell(
+                        onTap: () {
+                          js.context
+                              .callMethod('open', ['${repoList[index].link}']);
+                        },
+                        child: MouseRegion(
+                          cursor: SystemMouseCursors.click,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: ColorConstants.kButtonColor,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            padding: const EdgeInsets.all(20),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.book,
+                                      color: Colors.white,
+                                      size: 15,
+                                    ),
+                                    const SizedBox(width: 3),
+                                    SizedBox(
+                                      width: screenSize.width * .1,
+                                      child: Text(
+                                        '${repoList[index].repo}',
+                                        style: const TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 13,
+                                            overflow: TextOverflow.ellipsis),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const Expanded(child: SizedBox()),
+                                Text(
+                                  repoList[index].description ?? '',
+                                  style: TextStyle(
+                                    color: Colors.grey.withOpacity(.9),
+                                    fontStyle: FontStyle.italic,
+                                    fontSize: 15,
+                                  ),
+                                  maxLines: 3,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                const Expanded(child: SizedBox()),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        CircleAvatar(
+                                          backgroundColor: hexToColor(
+                                              repoList[index].languageColor!),
+                                          radius: 5,
+                                        ),
+                                        const SizedBox(width: 5),
+                                        Text(
+                                          '${repoList[index].language}',
+                                          style: const TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Row(
+                                          children: [
+                                            const Icon(
+                                              LineIcons.starAlt,
+                                              size: 18,
+                                              color: Colors.white,
+                                            ),
+                                            const SizedBox(width: 5),
+                                            Text(
+                                              '${repoList[index].stars}',
+                                              style: const TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 15,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        const SizedBox(width: 3),
+                                        Row(
+                                          children: [
+                                            const Icon(
+                                              LineIcons.codeBranch,
+                                              color: Colors.white,
+                                              size: 18,
+                                            ),
+                                            const SizedBox(width: 5),
+                                            Text(
+                                              '${repoList[index].forks}',
+                                              style: const TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 15,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                SizedBox(height: screenSize.height * .01),
+                Center(
+                  child: InkWell(
+                    onTap: () {
+                      js.context
+                          .callMethod('open', ['https://github.com/coskuncay']);
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: ColorConstants.kButtonColor,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: const Text(
+                        'More Projects',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          )
+        : LargeViewWidget(screenSize: screenSize, repoList: repoList);
+  }
+}
+
+class LargeViewWidget extends StatelessWidget {
+  const LargeViewWidget({
+    Key? key,
+    required this.screenSize,
+    required this.repoList,
+  }) : super(key: key);
+
+  final Size screenSize;
+  final List<RepoModel> repoList;
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(20),
       height: screenSize.height * .8,
