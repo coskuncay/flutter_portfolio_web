@@ -55,7 +55,7 @@ class _AboutMePageState extends State<AboutMePage> {
           child: SizedBox(
             width: ResponsiveWidget.isSmallScreen(context)
                 ? screenSize.width * .7
-                : screenSize.width * .3,
+                : screenSize.width * .4,
             child: const Text(
               'A passionate Full Stack Software Developer having an experience of building Web and Mobile applications with JavaScript / Reactjs / Nodejs / React Native and some other cool libraries and frameworks.',
               style: TextStyle(

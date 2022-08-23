@@ -4,6 +4,7 @@ import 'package:flutter_web_portfolio/utils/colors.dart';
 import 'package:flutter_web_portfolio/pages/about_me_page.dart';
 import 'package:flutter_web_portfolio/utils/responsive.dart';
 import 'package:flutter_web_portfolio/widgets/explore_drawer.dart';
+import 'package:flutter_web_portfolio/widgets/footer.dart';
 import 'package:flutter_web_portfolio/widgets/top_bar.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,17 +16,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final ScrollController _scrollController = ScrollController();
-  double _scrollPosition = 0;
   final double _opacity = 0;
-  _scrollListener() {
-    setState(() {
-      _scrollPosition = _scrollController.position.pixels;
-    });
-  }
-
   @override
   void initState() {
-    _scrollController.addListener(_scrollListener);
     super.initState();
   }
 
@@ -63,8 +56,8 @@ class _HomePageState extends State<HomePage> {
         controller: _scrollController,
         physics: const ClampingScrollPhysics(),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(
               height: ResponsiveWidget.isSmallScreen(context)
@@ -75,7 +68,7 @@ class _HomePageState extends State<HomePage> {
             const Divider(color: Colors.grey, thickness: .3),
             const OpenSourcePage(),
             const Divider(color: Colors.grey, thickness: .3),
-            // const ContactPage(),
+            const FooterWidget(),
           ],
         ),
       ),

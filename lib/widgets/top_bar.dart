@@ -13,8 +13,6 @@ class _TopBarWidgetState extends State<TopBarWidget> {
     false,
     false,
     false,
-    false,
-    false,
   ];
   @override
   Widget build(BuildContext context) {
@@ -35,9 +33,9 @@ class _TopBarWidgetState extends State<TopBarWidget> {
                   children: [
                     _buildTopBarButton('Skills', 0),
                     SizedBox(width: screenSize.width * .02),
-                    _buildTopBarButton('Open Source', 2),
+                    _buildTopBarButton('Open Source', 1),
                     SizedBox(width: screenSize.width * .02),
-                    _buildTopBarButton('Contact Me', 4),
+                    _buildTopBarButton('Contact Me', 2),
                   ],
                 ),
               ),
