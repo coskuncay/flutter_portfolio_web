@@ -60,7 +60,6 @@ class _OpenSourcePageState extends State<OpenSourcePage> {
               itemBuilder: (BuildContext ctx, index) {
                 return InkWell(
                   onTap: () {
-                    // Launcher.launchInBrowser(repoList[index].link!);
                     js.context.callMethod('open', ['${repoList[index].link}']);
                   },
                   child: MouseRegion(
@@ -81,21 +80,24 @@ class _OpenSourcePageState extends State<OpenSourcePage> {
                                 color: Colors.white,
                               ),
                               const SizedBox(width: 10),
-                              Text(
-                                '${repoList[index].repo}',
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 25,
+                              SizedBox(
+                                width: screenSize.width * .2,
+                                child: Text(
+                                  '${repoList[index].repo}',
+                                  style: const TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 25,
+                                      overflow: TextOverflow.ellipsis),
                                 ),
                               ),
                             ],
                           ),
                           const Expanded(child: SizedBox()),
                           Text(
-                            '${repoList[index].description}',
-                            style: const TextStyle(
-                              color: Colors.white,
+                            repoList[index].description ?? '',
+                            style: TextStyle(
+                              color: Colors.grey.withOpacity(.9),
                               fontStyle: FontStyle.italic,
                               fontSize: 20,
                             ),

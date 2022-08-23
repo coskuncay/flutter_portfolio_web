@@ -53,7 +53,9 @@ class _AboutMePageState extends State<AboutMePage> {
         SizedBox(height: screenSize.height * .05),
         Center(
           child: SizedBox(
-            width: screenSize.width * .9,
+            width: ResponsiveWidget.isSmallScreen(context)
+                ? screenSize.width * .7
+                : screenSize.width * .3,
             child: const Text(
               'A passionate Full Stack Software Developer having an experience of building Web and Mobile applications with JavaScript / Reactjs / Nodejs / React Native and some other cool libraries and frameworks.',
               style: TextStyle(
@@ -63,8 +65,12 @@ class _AboutMePageState extends State<AboutMePage> {
             ),
           ),
         ),
-        SizedBox(height: screenSize.height * .05),
-        const SocialsWidget(),
+        SizedBox(
+          width: ResponsiveWidget.isSmallScreen(context)
+              ? screenSize.width * .5
+              : screenSize.width * .3,
+          child: SocialsWidget(),
+        ),
         SizedBox(height: screenSize.height * .05),
       ],
     );

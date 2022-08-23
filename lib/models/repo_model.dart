@@ -25,7 +25,7 @@ class RepoModel {
   String? image;
   String? language;
   String? languageColor;
-  String? stars;
+  dynamic stars;
   dynamic forks;
   String? website;
 

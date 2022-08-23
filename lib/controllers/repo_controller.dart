@@ -14,7 +14,7 @@ class RepoController {
       '/',
       queryParameters,
     );
-    final res = await http.post(
+    final res = await http.get(
       url,
     );
     if (res.statusCode == 200) {
