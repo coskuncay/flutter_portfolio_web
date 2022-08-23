@@ -36,7 +36,7 @@ class _AboutMePageState extends State<AboutMePage> {
             child: AnimatedTextKit(
               animatedTexts: [
                 TypewriterAnimatedText(
-                  'Hi all, I\'m John!',
+                  'Hi all , I\'m Emre!',
                   speed: const Duration(
                     milliseconds: 200,
                   ),

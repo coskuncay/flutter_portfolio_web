@@ -101,13 +101,13 @@ class SmallViewWidget extends StatelessWidget {
                               ),
                               const SizedBox(width: 3),
                               SizedBox(
-                                width: screenSize.width * .1,
+                                width: screenSize.width * .2,
                                 child: Text(
                                   '${repoList[index].repo}',
                                   style: const TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 13,
+                                      fontSize: 14,
                                       overflow: TextOverflow.ellipsis),
                                 ),
                               ),
@@ -119,7 +119,7 @@ class SmallViewWidget extends StatelessWidget {
                             style: TextStyle(
                               color: Colors.grey.withOpacity(.9),
                               fontStyle: FontStyle.italic,
-                              fontSize: 15,
+                              fontSize: 16,
                             ),
                             maxLines: 3,
                             overflow: TextOverflow.ellipsis,

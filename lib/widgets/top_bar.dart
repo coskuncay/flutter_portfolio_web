@@ -12,7 +12,6 @@ class _TopBarWidgetState extends State<TopBarWidget> {
   final List _isHovering = [
     false,
     false,
-    false,
   ];
   @override
   Widget build(BuildContext context) {
@@ -31,11 +30,11 @@ class _TopBarWidgetState extends State<TopBarWidget> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    _buildTopBarButton('Skills', 0),
-                    SizedBox(width: screenSize.width * .02),
+                    _buildTopBarButton('About Me', 0),
+                    // SizedBox(width: screenSize.width * .02),
                     _buildTopBarButton('Open Source', 1),
-                    SizedBox(width: screenSize.width * .02),
-                    _buildTopBarButton('Contact Me', 2),
+                    // SizedBox(width: screenSize.width * .02),
+                    // _buildTopBarButton('Contact Me', 2),
                   ],
                 ),
               ),
@@ -47,22 +46,7 @@ class _TopBarWidgetState extends State<TopBarWidget> {
   }
 
   Widget _buildTopBarLogoWidget() {
-    return MouseRegion(
-      cursor: SystemMouseCursors.click,
-      child: Container(
-        padding: const EdgeInsets.all(20),
-        color: ColorConstants.kButtonColor,
-        child: const Text(
-          'LOGO',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 25,
-            fontWeight: FontWeight.w400,
-            letterSpacing: 3,
-          ),
-        ),
-      ),
-    );
+    return Image.asset('assets/images/logo.png');
   }
 
   Widget _buildTopBarButton(String title, int ind) {

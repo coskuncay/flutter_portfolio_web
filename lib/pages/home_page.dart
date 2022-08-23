@@ -34,19 +34,8 @@ class _HomePageState extends State<HomePage> {
               backgroundColor: Colors.blueGrey.shade900.withOpacity(_opacity),
               elevation: 5,
               centerTitle: true,
-              title: Container(
-                padding: const EdgeInsets.all(20),
-                color: ColorConstants.kButtonColor,
-                child: const Text(
-                  'LOGO',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 25,
-                    fontWeight: FontWeight.w400,
-                    letterSpacing: 3,
-                  ),
-                ),
-              ),
+              toolbarHeight: screenSize.height * .08,
+              title: Image.asset('assets/images/logo.png'),
             )
           : PreferredSize(
               preferredSize: Size(screenSize.width, 1000),

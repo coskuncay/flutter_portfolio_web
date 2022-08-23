@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_portfolio/widgets/footer.dart';
 
 class ExploreDrawer extends StatelessWidget {
   const ExploreDrawer({
@@ -19,7 +20,7 @@ class ExploreDrawer extends StatelessWidget {
               InkWell(
                 onTap: () {},
                 child: const Text(
-                  'Login',
+                  'About Me',
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
               ),
@@ -33,50 +34,12 @@ class ExploreDrawer extends StatelessWidget {
               InkWell(
                 onTap: () {},
                 child: const Text(
-                  'Sign Up',
+                  'Open Source Projects',
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-                child: Divider(
-                  color: Colors.blueGrey.shade400,
-                  thickness: 2,
-                ),
-              ),
-              InkWell(
-                onTap: () {},
-                child: const Text(
-                  'Discover',
-                  style: TextStyle(color: Colors.white, fontSize: 22),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-                child: Divider(
-                  color: Colors.blueGrey.shade400,
-                  thickness: 2,
-                ),
-              ),
-              InkWell(
-                onTap: () {},
-                child: const Text(
-                  'Contact Us',
-                  style: TextStyle(color: Colors.white, fontSize: 22),
-                ),
-              ),
-              Expanded(
-                child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Text(
-                    'Copyright © 2020 | EXPLORE',
-                    style: TextStyle(
-                      color: Colors.blueGrey.shade300,
-                      fontSize: 14,
-                    ),
-                  ),
-                ),
-              )
+              const Expanded(child: SizedBox()),
+              const FooterWidget()
             ],
           ),
         ),
