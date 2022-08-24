@@ -1,16 +1,14 @@
-# flutter_web_portfolio
+# flutter_portfolio_web
 
-A new Flutter project.
+A minimal portfolio template for Developers with Flutter.
 
-## Getting Started
+inspired by [developerFolio](https://github.com/saadpasta/developerFolio)
 
-This project is a starting point for a Flutter application.
+thanks to [@egoist](https://github.com/egoist/gh-pinned-repos)
+## Screenshots
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![aboutmne](https://user-images.githubusercontent.com/29631083/186370058-24f7b717-0c98-4c31-8f3d-eb62e25b352f.PNG)
+![opensource](https://user-images.githubusercontent.com/29631083/186370066-c4b6bb15-e24b-4c5d-98af-c04c5e079f06.PNG)
+  
+  
+ 
